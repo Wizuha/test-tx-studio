@@ -1,3 +1,4 @@
+import { Notice } from "@/components/dashboard/Notice";
 import { Feature } from "@/components/dashboard/Feature";
 import { Hero } from "@/components/dashboard/Hero";
 import { HeroImage } from "@/components/dashboard/HeroImage";
@@ -9,9 +10,8 @@ function DashboardPage() {
         <Hero />
         <HeroImage />
       </div>
-      <div className="flex justify-between">
         <Feature />
-      </div>
+        <Notice />
     </div>
   );
 }
