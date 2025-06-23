@@ -2,7 +2,7 @@ import { Button } from "../ui/button";
 
 export function Feature() {
   return (
-    <section className="w-full py-12 md:py-24 bg-gray-100 ">
+    <section id="affacturage_pret" className="w-full py-12 md:py-24 bg-gray-100 ">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-8 items-start">
           <div className="flex flex-col gap-4">

@@ -2,7 +2,7 @@ import { Check, BadgeDollarSign ,ClockFading, LucideMessageCircleQuestion } from
 
 export function Notice(){
   return(
-    <section className="w-full py-12 md:py-24" >
+    <section id="avis" className="w-full py-12 md:py-24" >
       <div className="container mx-auto px-4 md:p-6">
         <div className="grid md:grid-cols-2 gap-4">
           <div className="bg-white rounded-md shadow-sm p-6 hover:shadow-md transition duration-300 cursor-pointer ">
