@@ -21,7 +21,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             </div>
           </div>
           <div className="xl:flex hidden items-center gap-4">
-            <Button className="bg-white text-green-500 border border-green-500 hover:bg-green-500 hover:text-white transition duration-200 active:bg-green-400" ><Link href = "/auth/login">S'inscrire</Link></Button>
+            <Button className="bg-white text-green-500 border border-green-500 hover:bg-green-500 hover:text-white transition duration-200 active:bg-green-400" ><Link href = "/auth/signup">S'inscrire</Link></Button>
             <Button className=" text-white bg-green-500 hover:bg-green-600 transition duration-200 active:bg-green-400" ><Link href = "/auth/connect">Se connecter</Link></Button>
           </div>
           <div className="flex items-center xl:hidden">
@@ -35,14 +35,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 <SheetHeader>
                   <SheetTitle className="text-left">Menu</SheetTitle>
                   <div className="flex flex-col gap-4 mt-4">
-                    <Link href="/dashboard#pret" scroll={false} className="text-gray-600 hover:text-gray-900 transition-colors duration-200">Prêt</Link>
-                    <Link href="/dashboard#affacturage" className="text-gray-600 hover:text-gray-900 transition-colors duration-200">Affacturage</Link>
-                    <Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors duration-200">Simulateur</Link>
-                    <Link href="#" className="text-gray-600 hover:text-gray-900 transition-colors duration-200">Contact</Link>
-                    <Link href="/dashboard#avis" className="text-gray-600 hover:text-gray-900 transition-colors duration-200">Avis</Link>
                     <div className="flex flex-col gap-3 mt-4">
                       <Button className="bg-white text-green-500 border border-green-500 hover:bg-green-500 hover:text-white transition duration-200 active:bg-green-400">
-                        <Link href="/auth/login">S'inscrire</Link>
+                        <Link href="/auth/signup">S'inscrire</Link>
                       </Button>
                       <Button className="text-white bg-green-500 hover:bg-green-600 transition duration-200 active:bg-green-400">
                         <Link href="/auth/connect">Se connecter</Link>

@@ -15,7 +15,7 @@ export function Hero() {
           <Link href="/auth/connect">Se connecter</Link>
         </Button>
         <Button className="bg-white text-green-500 border-b-2 border-green-500 hover:bg-green-500 hover:text-white transition duration-300 active:bg-green-400">
-          <Link href="/auth/login">S'inscrire →</Link>
+          <Link href="/auth/signup">S'inscrire →</Link>
         </Button>
       </div>
     </div>
