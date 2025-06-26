@@ -1,7 +1,7 @@
-import { Notice } from "@/components/dashboard/Notice";
-import { Feature } from "@/components/dashboard/Feature";
-import { Hero } from "@/components/dashboard/Hero";
-import { HeroImage } from "@/components/dashboard/HeroImage";
+import { Notice } from "@/src/components/dashboard/Notice";
+import { Feature } from "@/src/components/dashboard/Feature";
+import { Hero } from "@/src/components/dashboard/Hero";
+import { HeroImage } from "@/src/components/dashboard/HeroImage";
 
 function DashboardPage() {
   return (
