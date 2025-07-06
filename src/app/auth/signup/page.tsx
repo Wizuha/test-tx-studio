@@ -1,3 +1,5 @@
+"use client"
+
 import { Button } from "@/src/components/ui/button"
 import {
   Card,
@@ -10,30 +12,25 @@ import {
 } from "@/src/components/ui/card"
 import { Input } from "@/src/components/ui/input"
 import { Label } from "@/src/components/ui/label"
+import { createAccount } from "./action"
+import { toast } from "sonner"
+import { useRouter } from "next/navigation"
 
 export default function SignUpPage(){
+  const router = useRouter()
 
-  async function createAccount(formData:FormData){
-    'use server'
-
-    const rawFormData = {
-        email : formData.get('email'),
-        password : formData.get('password'),
-        passwordConfirm : formData.get('passwordConfirm'),
-        status: formData.get('status'),
+  async function handleSubmit(formData: FormData) {
+    const result = await createAccount(formData)
+    
+    if (result.success) {
+      toast.success(result.message)
+      setTimeout(() => {
+        router.push("/auth/login")
+      }, 2000)
+    } else {
+      toast.error(result.message)
     }
-
-    if(!rawFormData.email || !rawFormData.password || !rawFormData.passwordConfirm){
-      throw new Error("Tous les champs n'ont pas éte rempli !")
-    }
-
-    if (rawFormData.password !== rawFormData.passwordConfirm){
-      throw new Error("Les mots de passe ne correspondent pas !");
-    }
-
-
   }
-
 
   return(
     <div className="w-full flex items-center justify-center h-screen p-6 ">
@@ -48,7 +45,7 @@ export default function SignUpPage(){
           </CardAction>
         </CardHeader>
         <CardContent>
-          <form action={createAccount} >
+          <form action={handleSubmit} >
             <div className="flex flex-col gap-6">
               <div className="grid gap-2">
                 <Label htmlFor="email">Email</Label>
@@ -68,9 +65,9 @@ export default function SignUpPage(){
               </div>
               <div className="grid gap-2">
                 <div className="flex items-center">
-                  <Label htmlFor="password">Confirmer votre mot de passe</Label>
+                  <Label htmlFor="passwordConfirm">Confirmer votre mot de passe</Label>
                 </div>
-                <Input id="password" name="passwordConfirm" type="password" placeholder="Confirmer votre mot de passe" required />
+                <Input id="passwordConfirm" name="passwordConfirm" type="password" placeholder="Confirmer votre mot de passe" required />
               </div>
             </div>
             <CardFooter className="flex-col gap-2 mt-6">

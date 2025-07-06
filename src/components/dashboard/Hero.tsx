@@ -12,7 +12,7 @@ export function Hero() {
       </div>
       <div className="flex gap-3 md:flex-row flex-col gap-5">
         <Button className="text-white bg-green-500 hover:bg-green-600 transition duration-300 active:bg-green-400">
-          <Link href="/auth/connect">Se connecter</Link>
+          <Link href="/auth/login">Se connecter</Link>
         </Button>
         <Button className="bg-white text-green-500 border-b-2 border-green-500 hover:bg-green-500 hover:text-white transition duration-300 active:bg-green-400">
           <Link href="/auth/signup">S'inscrire →</Link>

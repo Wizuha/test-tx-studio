@@ -22,7 +22,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           </div>
           <div className="xl:flex hidden items-center gap-4">
             <Button className="bg-white text-green-500 border border-green-500 hover:bg-green-500 hover:text-white transition duration-200 active:bg-green-400" ><Link href = "/auth/signup">S'inscrire</Link></Button>
-            <Button className=" text-white bg-green-500 hover:bg-green-600 transition duration-200 active:bg-green-400" ><Link href = "/auth/connect">Se connecter</Link></Button>
+            <Button className=" text-white bg-green-500 hover:bg-green-600 transition duration-200 active:bg-green-400" ><Link href = "/auth/login">Se connecter</Link></Button>
           </div>
           <div className="flex items-center xl:hidden">
             <Sheet>
@@ -40,7 +40,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                         <Link href="/auth/signup">S'inscrire</Link>
                       </Button>
                       <Button className="text-white bg-green-500 hover:bg-green-600 transition duration-200 active:bg-green-400">
-                        <Link href="/auth/connect">Se connecter</Link>
+                        <Link href="/auth/login">Se connecter</Link>
                       </Button>
                     </div>
                   </div>
