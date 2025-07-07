@@ -41,7 +41,7 @@ export default function SignUpPage(){
             c'est simple et rapide !
           </CardDescription>
           <CardAction>
-            <Button variant="link">Se connecter</Button>
+            <Button variant="link" onClick={() => router.push("/auth/login")} >Se connecter</Button>
           </CardAction>
         </CardHeader>
         <CardContent>
@@ -71,7 +71,7 @@ export default function SignUpPage(){
               </div>
             </div>
             <CardFooter className="flex-col gap-2 mt-6">
-              <Button type="submit" className="w-full">
+              <Button type="submit" className="w-full px-3">
                 S'inscrire
               </Button>
             </CardFooter>
