@@ -5,10 +5,25 @@ import { Input } from "@/src/components/ui/input"
 import { Label } from "@/src/components/ui/label"
 import { Button } from "@/src/components/ui/button"
 import { useRouter } from "next/navigation"
+import { toast } from "sonner"
+import { loginAccount } from "./action"
 
 
 export default function LoginPage(){
   const router = useRouter()
+
+  async function handleSubmit(formData: FormData) {
+    const result = await loginAccount(formData)
+    
+    if (result.success) {
+      setTimeout(() => {
+        toast.success(result.message)
+        router.push("/dashboard")
+      }, 2000)
+    } else {
+      toast.error(result.message)
+    }
+  }
   
   return(
     <div className="w-full flex items-center justify-center h-screen p-6 "  >
@@ -23,13 +38,14 @@ export default function LoginPage(){
           </CardAction>
         </CardHeader>
         <CardContent>
-          <form>
+          <form action={handleSubmit} >
             <div className="flex flex-col gap-6">
               <div className="grid gap-2">
                 <Label htmlFor="email">Email</Label>
                 <Input
                   id="email"
                   type="email"
+                  name = "email"
                   placeholder="email@example.com"
                   required
                 />
@@ -44,16 +60,16 @@ export default function LoginPage(){
                     Mot de passe oublié ?
                   </a>
                 </div>
-                <Input id="password" type="password" required />
+                <Input id="password" name="password" type="password" required />
               </div>
+            </div>
+            <div className="flex-col mt-6">
+              <Button type="submit" className="w-full">
+                Se connecter
+              </Button>
             </div>
           </form>
         </CardContent>
-        <CardFooter className="flex-col gap-2">
-          <Button type="submit" className="w-full">
-            Se connecter
-          </Button>
-        </CardFooter>
     </Card>
     </div>
   )

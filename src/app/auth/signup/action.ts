@@ -1,6 +1,5 @@
 'use server'
 
-import { redirect } from "next/navigation"
 import prisma from "@/src/lib/prisma"
 import bcrypt from "bcryptjs"
 
