@@ -6,12 +6,14 @@ import bcrypt from "bcryptjs"
 export async function createAccount(formData:FormData){
   try{
       const rawFormData = {
+          lastname : formData.get('lastname')?.toString(),
+          firstname : formData.get('firstname')?.toString(),
           email : formData.get('email')?.toString(),
           password : formData.get('password')?.toString(),
           passwordConfirm : formData.get('passwordConfirm')?.toString(),
       }
   
-      if(!rawFormData.email || !rawFormData.password || !rawFormData.passwordConfirm){
+      if(!rawFormData.email || !rawFormData.password || !rawFormData.passwordConfirm || !rawFormData.lastname || !rawFormData.firstname) {
         throw new Error("Tous les champs n'ont pas éte rempli !")
       }
   
@@ -30,6 +32,8 @@ export async function createAccount(formData:FormData){
         data: {
           email: rawFormData.email,
           password: hashedPassword,
+          firstname : rawFormData.firstname,
+          lastname: rawFormData.lastname
         }
       })
       console.log(user)

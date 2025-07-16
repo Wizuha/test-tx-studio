@@ -47,6 +47,28 @@ export default function SignUpPage(){
         <CardContent>
           <form action={handleSubmit} >
             <div className="flex flex-col gap-6">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="grid gap-2">
+                  <Label htmlFor="lastname">Nom</Label>
+                  <Input
+                    id = "lastname"
+                    type="text"
+                    name="lastname"
+                    placeholder="Dupont"
+                    required
+                  />
+                </div>
+                <div className="grid gap-2">
+                  <Label htmlFor="firstname">Prénom</Label>
+                  <Input
+                    id = "firstname"
+                    type="text"
+                    name="firstname"
+                    placeholder="Jean"
+                    required
+                  />
+                </div>
+              </div>
               <div className="grid gap-2">
                 <Label htmlFor="email">Email</Label>
                 <Input
@@ -69,12 +91,10 @@ export default function SignUpPage(){
                 </div>
                 <Input id="passwordConfirm" name="passwordConfirm" type="password" placeholder="Confirmer votre mot de passe" required />
               </div>
-            </div>
-            <CardFooter className="flex-col gap-2 mt-6">
               <Button type="submit" className="w-full px-3">
                 S'inscrire
               </Button>
-            </CardFooter>
+            </div>
           </form>
         </CardContent>
       </Card>

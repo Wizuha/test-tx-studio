@@ -33,7 +33,7 @@ export default function RootLayout({
         <div className="min-h-screen">
           <nav>
             <div className="flex justify-between items-center p-4">
-                <img src="logo.png" alt="logo"/>
+                <img src="/logo.png" alt="logo"/>
               <div className="flex hidden xl:flex justify-between items-center gap-60">
                 <div className="flex items-center gap-6">
                 <Link href="/#affacturage_pret" className="text-gray-600 hover:text-gray-900 transition-colors duration-200">Prêt</Link>
