@@ -1,37 +1,28 @@
-'use client'
-
+import { cookies } from 'next/headers'
 import jwt from 'jsonwebtoken'
-import { useEffect } from 'react'
-import { useRouter } from 'next/navigation'
 
+const SECRET = process.env.JWT_SECRET || 'mon_secret_de_test'
 
-const SECRET = process.env.JWT_SECRET!
+export default async function DashboardPage() {
+  const cookieStore = await cookies()
+  const token = cookieStore.get('token')?.value
 
-export default function DashboardPage() {
-  const router = useRouter()
+  let firstname = ''
+  let lastname = ''
 
-  useEffect(() => {
-    const token = document.cookie
-      .split('; ')
-      .find((row) => row.startsWith('token='))
-      ?.split('=')[1]
-  
-    if (!token) {
-      router.push('/auth/login')
-      return
-    }
-  
+  if (token) {
     try {
-      const decoded = jwt.verify(token, SECRET)
-      console.log('Utilisateur :', decoded)
-    } catch (error) {
-      router.push('/auth/login')
+      const decoded: any = jwt.verify(token, SECRET)
+      firstname = decoded.firstname
+      lastname = decoded.lastname
+    } catch (e) {
     }
-  }, [router])
+  }
 
   return (
     <div>
       <h1>Dashboard</h1>
+      <p>Bienvenue, {firstname} {lastname} !</p>
     </div>
   )
 }

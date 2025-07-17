@@ -35,7 +35,7 @@ export async function loginAccount(formData : FormData){
     }
 
     const token = jwt.sign(
-      { userId: user.id, email: user.email },
+      { userId: user.id, email: user.email, firstname : user.firstname, lastname: user.lastname },
       SECRET,
       { expiresIn: '7d' }
     )
