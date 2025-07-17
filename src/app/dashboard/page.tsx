@@ -9,12 +9,14 @@ export default async function DashboardPage() {
 
   let firstname = ''
   let lastname = ''
+  let mail = ''
 
   if (token) {
     try {
       const decoded: any = jwt.verify(token, SECRET)
       firstname = decoded.firstname
       lastname = decoded.lastname
+      mail = decoded.email
     } catch (e) {
     }
   }
@@ -22,7 +24,7 @@ export default async function DashboardPage() {
   return (
     <div>
       <h1>Dashboard</h1>
-      <p>Bienvenue, {firstname} {lastname} !</p>
+      <p>Bienvenue, {firstname} {lastname}!</p>
     </div>
   )
 }
