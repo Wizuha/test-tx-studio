@@ -6,15 +6,18 @@ import { Label } from "@/src/components/ui/label"
 import { Button } from "@/src/components/ui/button"
 import { useRouter } from "next/navigation"
 import { toast } from "sonner"
+import "@/src/app/globals.css";
 import { loginAccount } from "./action"
 
 
-export default function LoginPage(){
+export default function LoginPage() {
   const router = useRouter()
 
-  async function handleSubmit(formData: FormData) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    const formData = new FormData(event.currentTarget)
     const result = await loginAccount(formData)
-    
+
     if (result.success) {
       setTimeout(() => {
         toast.success(result.message)
@@ -24,8 +27,8 @@ export default function LoginPage(){
       toast.error(result.message)
     }
   }
-  
-  return(
+
+  return (
     <div className="w-full flex items-center justify-center h-screen p-6 "  >
       <Card className="w-full max-w-sm">
         <CardHeader>
@@ -38,15 +41,15 @@ export default function LoginPage(){
           </CardAction>
         </CardHeader>
         <CardContent>
-          <form action={handleSubmit} >
+          <form onSubmit={handleSubmit} >
             <div className="flex flex-col gap-6">
               <div className="grid gap-2">
                 <Label htmlFor="email">Email</Label>
                 <Input
                   id="email"
                   type="email"
-                  name = "email"
-                  placeholder="email@example.com"
+                  name="email"
+                  placeholder="Email@example.com"
                   required
                 />
               </div>
@@ -60,7 +63,7 @@ export default function LoginPage(){
                     Mot de passe oublié ?
                   </a>
                 </div>
-                <Input id="password" name="password" type="password" required />
+                <Input id="password" name="password" type="password" placeholder="Mot de passe" required />
               </div>
             </div>
             <div className="flex-col mt-6">
@@ -70,7 +73,7 @@ export default function LoginPage(){
             </div>
           </form>
         </CardContent>
-    </Card>
+      </Card>
     </div>
   )
 }

@@ -1,5 +1,7 @@
 import { cookies } from 'next/headers'
 import jwt from 'jsonwebtoken'
+import "@/src/app/globals.css";
+
 
 const SECRET = process.env.JWT_SECRET || 'mon_secret_de_test'
 
@@ -22,7 +24,7 @@ export default async function DashboardPage() {
   }
 
   return (
-    <div>
+    <div className='h-screen bg-gray-50'>
       <h1>Dashboard</h1>
       <p>Bienvenue, {firstname} {lastname}!</p>
     </div>

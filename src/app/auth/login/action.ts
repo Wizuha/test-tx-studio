@@ -9,6 +9,7 @@ const SECRET = process.env.JWT_SECRET || 'mon_secret_de_test'
 
 export async function loginAccount(formData : FormData){
   try{
+    console.log("ok")
     const rawFormData = {
       email : formData.get("email")?.toString(),
       password : formData.get('password')?.toString(),

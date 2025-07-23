@@ -11,17 +11,19 @@ import {
   CardTitle,
 } from "@/src/components/ui/card"
 import { Input } from "@/src/components/ui/input"
+import "@/src/app/globals.css";
 import { Label } from "@/src/components/ui/label"
 import { createAccount } from "./action"
 import { toast } from "sonner"
 import { useRouter } from "next/navigation"
 
-export default function SignUpPage(){
+
+export default function SignUpPage() {
   const router = useRouter()
 
   async function handleSubmit(formData: FormData) {
     const result = await createAccount(formData)
-    
+
     if (result.success) {
       toast.success(result.message)
       setTimeout(() => {
@@ -32,7 +34,7 @@ export default function SignUpPage(){
     }
   }
 
-  return(
+  return (
     <div className="w-full flex items-center justify-center h-screen p-6 ">
       <Card className="w-full max-w-sm">
         <CardHeader>
@@ -51,7 +53,7 @@ export default function SignUpPage(){
                 <div className="grid gap-2">
                   <Label htmlFor="lastname">Nom</Label>
                   <Input
-                    id = "lastname"
+                    id="lastname"
                     type="text"
                     name="lastname"
                     placeholder="Dupont"
@@ -61,7 +63,7 @@ export default function SignUpPage(){
                 <div className="grid gap-2">
                   <Label htmlFor="firstname">Prénom</Label>
                   <Input
-                    id = "firstname"
+                    id="firstname"
                     type="text"
                     name="firstname"
                     placeholder="Jean"
@@ -74,8 +76,8 @@ export default function SignUpPage(){
                 <Input
                   id="email"
                   type="email"
-                  name = "email"
-                  placeholder="email@example.com"
+                  name="email"
+                  placeholder="Email@example.com"
                   required
                 />
               </div>
@@ -83,7 +85,7 @@ export default function SignUpPage(){
                 <div className="flex items-center">
                   <Label htmlFor="password">Mot de passe</Label>
                 </div>
-                <Input id="password" type="password" name = "password" placeholder="Mot de passe" required />
+                <Input id="password" type="password" name="password" placeholder="Mot de passe" required />
               </div>
               <div className="grid gap-2">
                 <div className="flex items-center">
