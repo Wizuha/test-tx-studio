@@ -1,9 +1,17 @@
 "use client"
+
 import Link from "next/link"
 import { SquareUser, ArrowRightLeft, User, Cog, Bell, Bot } from 'lucide-react';
+import { Button } from "../ui/button";
 
 
 export default function Sidebar() {
+
+  function handleLogout() {
+    document.cookie = "token=; Max-Age=0; path=/;"
+    window.location.href = "../auth/login"
+  }
+
   return (
     <nav className="flex flex-col items-center space-y-2">
       <div>
@@ -38,6 +46,9 @@ export default function Sidebar() {
             <Link href="#">Réglages</Link>
           </li>
         </ul>
+        <Button
+          onClick={handleLogout}
+        >Déconnexion</Button>
       </div>
     </nav>
   )

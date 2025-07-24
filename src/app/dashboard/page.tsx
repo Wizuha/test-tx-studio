@@ -34,7 +34,7 @@ export default async function DashboardPage() {
         <Link href="#" className='p-3 bg-white transition duration-300 hover:text-blue-800 hover:bg-blue-200 rounded-tl-md rounded-bl-md hover:rounded-md'>Mes prêts</Link>
         <Link href="#" className='p-3 bg-white transition duration-300 hover:text-blue-800 hover:bg-blue-200 rounded-tr-md rounded-br-md hover:rounded-md' >Mes factures</Link>
       </div>
-      <MonCompte />
+      <MonCompte firstname={firstname} lastname={lastname} />
       <InformationsFinancieres />
       <Transactions />
     </div>

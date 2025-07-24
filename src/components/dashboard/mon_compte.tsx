@@ -2,7 +2,7 @@
 import { Pencil, Smile } from "lucide-react"
 import Image from "next/image"
 
-export default function MonCompte() {
+export default function MonCompte({ firstname, lastname }: { firstname: string; lastname: string }) {
   return (
     <section className="mt-6">
       <h2 className="text-2xl font-bold mb-4">Mon compte</h2>
@@ -12,7 +12,7 @@ export default function MonCompte() {
             <Pencil size={14} />
           </button>
           <div>
-            <h3 className="font-semibold">Paul Dumartin</h3>
+            <h3 className="font-semibold">{lastname} {firstname}</h3>
             <p className="text-xs text-gray-500 mt-1">14 rue du Louvre<br />PARIS 75001</p>
           </div>
         </div>
