@@ -6,10 +6,12 @@ export default async function DashboardLayout({ children }: { children: ReactNod
 
   return (
     <div className="flex min-h-screen bg-gray-50">
-      <aside id="default-sidebar" className="hidden md:block w-64 bg-white p-5">
+      <aside id="default-sidebar" className="hidden md:block w-70 bg-white p-5">
         <Sidebar />
       </aside>
-      <main>{children}</main>
+      <main>
+        {children}
+      </main>
     </div>
   )
 }

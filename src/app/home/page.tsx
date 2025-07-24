@@ -10,8 +10,8 @@ function DashboardPage() {
         <Hero />
         <HeroImage />
       </div>
-        <Feature />
-        <Notice />
+      <Feature />
+      <Notice />
     </div>
   );
 }
