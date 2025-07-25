@@ -3,13 +3,16 @@
 import Link from "next/link"
 import { SquareUser, ArrowRightLeft, User, Cog, Bell, Bot } from 'lucide-react';
 import { Button } from "../ui/button";
+import { useRouter } from 'next/navigation'
 
 
 export default function Sidebar() {
 
-  function handleLogout() {
-    document.cookie = "token=; Max-Age=0; path=/;"
-    window.location.href = "../auth/login"
+  const router = useRouter()
+
+  async function handleLogout() {
+    await fetch('api/logout')
+    router.push('/auth/login')
   }
 
   return (
@@ -48,7 +51,7 @@ export default function Sidebar() {
         </ul>
         <Button
           onClick={handleLogout}
-        >Déconnexion</Button>
+        >Se deconnecter</Button>
       </div>
     </nav>
   )

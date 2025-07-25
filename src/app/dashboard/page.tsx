@@ -5,6 +5,7 @@ import Link from "next/link";
 import MonCompte from '@/src/components/dashboard/mon_compte';
 import InformationsFinancieres from '@/src/components/dashboard/InformationsFinancieres';
 import Transactions from '@/src/components/dashboard/transactions';
+import { redirect } from 'next/navigation'
 
 
 const SECRET = process.env.JWT_SECRET || 'mon_secret_de_test'
@@ -25,6 +26,8 @@ export default async function DashboardPage() {
       mail = decoded.email
     } catch (e) {
     }
+  } else {
+    redirect('/auth/login')
   }
 
   return (
